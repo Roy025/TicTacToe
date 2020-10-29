@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.DialogInterface;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -95,7 +96,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             }
         }
+        int i,x=0;
+        if(activeG == true){
+            for (i = 0; i < 9; i++){
+                if(filledP[i] > -1){
+                    x++;
+                }
+                if(x == 9){
+                    Dialog("Draw");
+                }
+            }
+        }
     }
+
     private void Dialog(String wintext){
         new AlertDialog.Builder(this)
                 .setTitle(wintext)
